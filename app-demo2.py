@@ -28,11 +28,6 @@ if uploaded_file is not None:
     st.subheader("Summary of Statistical Data")
     st.write(df.describe())
 
-
-    # Display table
-    st.subheader("Admissions per Month")
-    st.dataframe(monthly_admissions)
-
     # Example chart
     st.subheader("Admissions per Month")
 
