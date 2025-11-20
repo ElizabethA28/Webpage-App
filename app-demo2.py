@@ -22,7 +22,7 @@ if uploaded_file is not None:
     st.dataframe(df.head())
     st.subheader("Last Few Data Samples")
     st.dataframe(df.tail())
-
+ 
 
     # Basic Statistics
     st.write(df.describe())
