@@ -23,6 +23,10 @@ if uploaded_file is not None:
     st.subheader("Last Few Data Samples")
     st.dataframe(df.tail())
 
+
+    # Basic Statistics
+    st.write(df.describe())
+
     # Example chart
     st.subheader("Admissions per Month")
 
