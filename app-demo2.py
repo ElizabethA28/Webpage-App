@@ -23,9 +23,22 @@ if uploaded_file is not None:
     st.subheader("Last Few Data Samples")
     st.dataframe(df.tail())
  
-    st.subheader("Summary of Statistical Data")
+
     # Basic Statistics
+    st.subheader("Summary of Statistical Data")
     st.write(df.describe())
+
+     # dataset has a date column
+    if "date" in df.columns:
+        # Convert to datetime
+        df["date"] = pd.to_datetime(df["date"], errors="coerce")
+        df["month_year"] = df["date"].dt.to_period("M").astype(str)
+
+        monthly = df.groupby("month_year").size().reset_index(name="Admissions")
+
+        # Display table
+        st.write("Number of admissions per month:")
+        st.dataframe(monthly)
 
     # Example chart
     st.subheader("Admissions per Month")
